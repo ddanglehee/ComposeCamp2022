@@ -201,10 +201,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
     ) {
         Spacer(modifier = Modifier.height(16.dp))
         SearchBar(Modifier.padding(horizontal = 16.dp))
-        HomeSection(title = R.string.align_your_body, modifier) {
+        HomeSection(title = R.string.align_your_body) {
             AlignYourBodyRow()
         }
-        HomeSection(title = R.string.favorite_collections, modifier) {
+        HomeSection(title = R.string.favorite_collections) {
             FavoriteCollectionsGrid()
         }
         Spacer(modifier = Modifier.height(16.dp))
@@ -250,7 +250,13 @@ private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
 // Step: MySoothe App - Scaffold
 @Composable
 fun MySootheApp() {
-    // Implement composable here
+    MySootheTheme {
+        Scaffold(
+            bottomBar = { SootheBottomNavigation() }
+        ) { padding ->
+            HomeScreen(Modifier.padding(padding))
+        }
+    }
 }
 
 private val alignYourBodyData = listOf(
