@@ -1,6 +1,11 @@
 package com.codelabs.basicstatecodelab
 
-data class WellnessTask(
+import androidx.compose.runtime.*
+
+class WellnessTask(
     val id: Int,
-    val label: String
-)
+    val label: String,
+    initialChecked: Boolean = false
+) {
+    var checked by mutableStateOf(initialChecked)
+}
